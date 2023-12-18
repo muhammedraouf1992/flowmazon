@@ -1,5 +1,6 @@
 import prisma from "../db/prisma";
 import { cookies } from "next/headers";
+
 export const createCart = async () => {
   const cart = await prisma.cart.create({
     data: {},

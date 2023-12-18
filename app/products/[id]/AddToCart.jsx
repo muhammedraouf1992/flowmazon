@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useTransition } from "react";
 import { incrementQuantity } from "./actions";
+
 const AddToCart = ({ productId }) => {
   const [isPending, startTransition] = useTransition();
   const [success, setSuccess] = useState(false);
@@ -18,11 +19,13 @@ const AddToCart = ({ productId }) => {
         }}
       >
         Add To Cart
-        {isPending && <span className="loading loading-spinner"></span>}
-        {isPending && success && (
-          <span className="">added to cart successfully</span>
-        )}
       </button>
+
+      {isPending && <span className="loading loading-spinner"></span>}
+
+      {!isPending && success && (
+        <span className="text-success">added to cart successfully</span>
+      )}
     </div>
   );
 };

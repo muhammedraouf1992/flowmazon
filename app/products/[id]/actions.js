@@ -1,4 +1,5 @@
 "use server";
+import { revalidatePath } from "next/cache";
 import { createCart, getCart } from "../../lib/db/cartActions";
 
 export const incrementQuantity = async (productId) => {
@@ -22,4 +23,5 @@ export const incrementQuantity = async (productId) => {
       },
     });
   }
+  revalidatePath("/product/[id]");
 };

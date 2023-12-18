@@ -2,11 +2,13 @@ import React from "react";
 import prisma from "../lib/db/prisma";
 import { redirect } from "next/navigation";
 import FormButton from "../components/FormButton";
+
 export const metadata = {
   title: "Add product - Flowmazon",
   description:
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae iusto saepe, deserunt itaque inventore odit?",
 };
+
 const addProduct = async (formData) => {
   "use server";
   const title = formData.get("title")?.toString();
@@ -27,6 +29,7 @@ const addProduct = async (formData) => {
   });
   redirect("/");
 };
+
 const addProductPage = () => {
   return (
     <div className="max-w-lg">

@@ -23,5 +23,5 @@ export const incrementQuantity = async (productId) => {
       },
     });
   }
-  revalidatePath("/product/[id]");
+  revalidatePath("/product/[id]", "page");
 };

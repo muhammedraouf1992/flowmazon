@@ -5,9 +5,9 @@ import ProductCard from "./components/ProductCard";
 export default async function Home() {
   const products = await prisma.product.findMany();
   return (
-    <div className="grid lg:grid-cols-4 gap-4 grid-cols-2">
+    <div className="grid lg:grid-cols-4 gap-4 grid-cols-2 my-10">
       {products.map((product) => (
-        <ProductCard product={product} />
+        <ProductCard product={product} key={product.id} />
       ))}
     </div>
   );

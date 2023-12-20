@@ -2,7 +2,7 @@ import React from "react";
 import prisma from "../lib/db/prisma";
 import { redirect } from "next/navigation";
 import FormButton from "../components/FormButton";
-
+import { faker } from "@faker-js/faker";
 export const metadata = {
   title: "Add product - Flowmazon",
   description:
@@ -16,9 +16,10 @@ const addProduct = async (formData) => {
   const imgUrl = formData.get("imageUrl")?.toString();
   const price = Number(formData.get("price"));
 
-  if (!title || !description || !imgUrl) {
+  if (!title || !description || !imgUrl || !price) {
     throw Error("all fields are required");
   }
+
   await prisma.product.create({
     data: {
       title,
@@ -27,6 +28,7 @@ const addProduct = async (formData) => {
       price,
     },
   });
+
   redirect("/");
 };
 

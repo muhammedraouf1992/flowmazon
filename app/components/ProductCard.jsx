@@ -6,11 +6,11 @@ import AddToCart from "../products/[id]/AddToCart";
 
 const ProductCard = ({ product }) => {
   const isNew =
-    Date.now() - new Date(product.created_at).getTime() >
+    Date.now() - new Date(product.created_at).getTime() <
     1000 * 60 * 60 * 24 * 7;
   return (
     <>
-      <div className="card hover:shadow-xl bg-slate-600 py-6 px-4 h-[450px] ">
+      <div className="card hover:shadow-lg bg-slate-600 py-6 px-4 h-[450px] hover:shadow-blue-400 duration-200 ">
         <Image
           src={product.imgUrl}
           width={800}
@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         <Link href={`/products/${product.id}`} className="">
           <h2 className="card-title my-2">
             {product.title}
-            <span className="badge badge-accent">NEW</span>
+            <span className="badge badge-accent">{isNew && "NEW"}</span>
           </h2>
         </Link>
         <PriceTag price={product.price} />

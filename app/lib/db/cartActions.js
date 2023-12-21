@@ -1,7 +1,8 @@
 import { getServerSession } from "next-auth";
-import prisma from "../db/prisma";
+
 import { cookies } from "next/headers";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
+import prisma from "./prisma";
 
 export const createCart = async () => {
   const session = await getServerSession(authOptions);

@@ -1,7 +1,6 @@
-import Image from "next/image";
-import prisma from "./lib/db/prisma";
 import ProductCard from "./components/ProductCard";
 import PaginationComponent from "./components/PaginationComponent";
+import prisma from "./lib/db/prisma";
 
 export default async function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;

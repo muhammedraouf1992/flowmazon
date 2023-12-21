@@ -1,9 +1,10 @@
 import React, { cache } from "react";
-import prisma from "../../lib/db/prisma";
+
 import Image from "next/image";
 import PriceTag from "../../components/PriceTag";
 import AddToCart from "./AddToCart";
 import { notFound } from "next/navigation";
+import prisma from "@/app/lib/db/prisma";
 
 const getProduct = cache(async (id) => {
   const product = await prisma.product.findUnique({

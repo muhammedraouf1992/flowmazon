@@ -2,7 +2,7 @@ import React from "react";
 import prisma from "../lib/db/prisma";
 import { redirect } from "next/navigation";
 import FormButton from "../components/FormButton";
-import { faker } from "@faker-js/faker";
+
 export const metadata = {
   title: "Add product - Flowmazon",
   description:

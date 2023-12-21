@@ -23,8 +23,11 @@ export const generateMetadata = async ({ params }) => {
     };
   }
   return {
-    title: product?.title + "- Flow-mazon",
+    title: product?.title + " - Flowmazon",
     description: product?.description,
+    openGraph: {
+      images: [{ url: product.imgUrl }],
+    },
   };
 };
 

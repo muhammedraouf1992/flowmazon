@@ -32,6 +32,14 @@ export const generateMetadata = async ({ params }) => {
   };
 };
 
+export async function generateStaticParams() {
+  const products = await prisma.product.findMany();
+
+  return products.map((product) => ({
+    id: product.id,
+  }));
+}
+
 const singleProduct = async ({ params }) => {
   const product = await getProduct(params.id);
   if (!product) notFound();

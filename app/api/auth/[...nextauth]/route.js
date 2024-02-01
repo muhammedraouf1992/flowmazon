@@ -11,6 +11,7 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  //we add the callback because nextauth doesnt return the userid by default
   callbacks: {
     session({ user, session }) {
       session.user.id = user.id;

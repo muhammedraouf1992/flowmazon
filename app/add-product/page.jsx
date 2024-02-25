@@ -3,6 +3,8 @@ import React from "react";
 import { redirect } from "next/navigation";
 import FormButton from "../components/FormButton";
 import prisma from "../lib/db/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata = {
   title: "Add product - Flowmazon",
@@ -33,7 +35,11 @@ const addProduct = async (formData) => {
   redirect("/");
 };
 
-const addProductPage = () => {
+const addProductPage = async () => {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/add-product");
+  }
   return (
     <div className="max-w-lg">
       <h1 className="mb-3 text-lg font-bold">Add Product</h1>

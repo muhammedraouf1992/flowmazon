@@ -20,31 +20,32 @@ const PaginationComponent = ({ currentPage, pageSize, itemCount }) => {
       <button
         disabled={currentPage === 1}
         onClick={() => changePage(1)}
-        className="bg-slate-500 py-1 px-2 mx-2"
+        className="text-primary border-2  rounded-xl border-primary py-1 px-2 mx-2 hover:bg-primary hover:text-white cursor-pointer duration-200"
       >
         « «
       </button>
       <button
         disabled={currentPage === 1}
         onClick={() => changePage(currentPage - 1)}
-        className="bg-slate-500 py-1 px-2 mx-2"
+        className="text-primary border-2  rounded-xl border-primary py-1 px-2 mx-2 hover:bg-primary hover:text-white cursor-pointer duration-200"
       >
         «
       </button>
       <p>
-        page {currentPage} of {pageCount}
+        page <span className="text-primary">{currentPage}</span> of{" "}
+        <span className="text-primary">{pageCount}</span>
       </p>
       <button
         disabled={currentPage === pageCount}
         onClick={() => changePage(currentPage + 1)}
-        className="bg-slate-500 py-1 px-2 mx-2"
+        className="text-primary border-2  rounded-xl border-primary py-1 px-2 mx-2 hover:bg-primary hover:text-white cursor-pointer duration-200"
       >
         »
       </button>
       <button
         disabled={currentPage === pageCount}
         onClick={() => changePage(pageCount)}
-        className="bg-slate-500 py-1 px-2 mx-2"
+        className="text-primary border-2  rounded-xl border-primary py-1 px-2 mx-2 hover:bg-primary hover:text-white cursor-pointer duration-200"
       >
         » »
       </button>

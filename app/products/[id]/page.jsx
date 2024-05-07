@@ -57,9 +57,9 @@ const singleProduct = async ({ params }) => {
       </div>
       <div>
         <h2 className="text-4xl font-bold text-primary">{product.title}</h2>
-        <p className="my-4 text-slate-200">{product.description}</p>
+        <p className="my-4 text-slate-700">{product.description}</p>
         <PriceTag price={product.price} />
-        <AddToCart productId={product.id} />
+        <AddToCart productId={product.id} isSingleProduct={true} />
       </div>
     </div>
   );

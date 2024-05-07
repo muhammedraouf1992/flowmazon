@@ -1,6 +1,9 @@
-import ProductCard from "./components/ProductCard";
 import PaginationComponent from "./components/PaginationComponent";
 import prisma from "./lib/db/prisma";
+import HeroComponent from "./components/HeroComponent";
+import StoreFeatured from "./components/StoreFeatured";
+import ProductList from "./components/ProductList";
+import NewsLetterBanner from "./components/NewsLetterBanner";
 
 export default async function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
@@ -16,11 +19,9 @@ export default async function Home({ searchParams }) {
   });
   return (
     <>
-      <div className="grid lg:grid-cols-4 gap-4 grid-cols-2 my-10 ">
-        {products.map((product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
-      </div>
+      <HeroComponent />
+      <StoreFeatured />
+      <ProductList products={products} />
       <div>
         <PaginationComponent
           pageSize={pageSize}
@@ -28,6 +29,7 @@ export default async function Home({ searchParams }) {
           itemCount={totalItemCount}
         />
       </div>
+      <NewsLetterBanner />
     </>
   );
 }

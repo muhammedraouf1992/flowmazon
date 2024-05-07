@@ -1,12 +1,14 @@
 "use client";
 import React, { useState, useTransition } from "react";
 import { incrementQuantity } from "./actions";
-
-const AddToCart = ({ productId }) => {
+import svg from "../../../public/assets/right-tick-svgrepo-com.svg";
+import cartSvg from "../../../public/assets/cart.svg";
+import Image from "next/image";
+const AddToCart = ({ productId, isSingleProduct }) => {
   const [isPending, startTransition] = useTransition();
   const [success, setSuccess] = useState(false);
   return (
-    <div className="mt-10">
+    <div className="">
       <button
         disabled={isPending}
         className="btn btn-primary"
@@ -18,13 +20,29 @@ const AddToCart = ({ productId }) => {
           });
         }}
       >
-        Add To Cart
+        {isSingleProduct ? (
+          "Add To Cart"
+        ) : (
+          <Image
+            src={cartSvg}
+            width={30}
+            height={30}
+            alt="icon"
+            className="inline-block"
+          />
+        )}
       </button>
 
       {isPending && <span className="loading loading-spinner"></span>}
 
       {!isPending && success && (
-        <span className="text-success">added to cart successfully</span>
+        <Image
+          src={svg}
+          width={30}
+          height={30}
+          alt="icon"
+          className="inline-block"
+        />
       )}
     </div>
   );

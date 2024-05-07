@@ -41,7 +41,7 @@ const addProductPage = async () => {
     redirect("/api/auth/signin?callbackUrl=/add-product");
   }
   return (
-    <div className="max-w-lg">
+    <div className="max-w-lg mx-auto mt-10 mb-32">
       <h1 className="mb-3 text-lg font-bold">Add Product</h1>
       <form action={addProduct}>
         <input

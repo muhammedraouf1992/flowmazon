@@ -10,22 +10,25 @@ const ProductCard = ({ product }) => {
     1000 * 60 * 60 * 24 * 7;
   return (
     <>
-      <div className="card hover:shadow-lg bg-slate-600 py-6 px-4 h-[450px] hover:shadow-blue-400 duration-200 ">
+      <div className="card hover:shadow-lg py-4 px-6 rounded-xl border-2 border-slate-400 flex flex-col justify-between">
         <Image
           src={product.imgUrl}
-          width={800}
-          height={400}
+          width={1000}
+          height={600}
           alt={product.title}
-          className="w-80 h-60 object-cover "
+          className="w-80 h-80 object-cover rounded-xl"
         />
         <Link href={`/products/${product.id}`} className="">
-          <h2 className="card-title my-2">
+          <h2 className="card-title my-2 text-black">
             {product.title}
             <span className="badge badge-accent">{isNew && "NEW"}</span>
           </h2>
         </Link>
-        <PriceTag price={product.price} />
-        <AddToCart productId={product.id} />
+
+        <div className="flex items-center justify-between">
+          <PriceTag price={product.price} />
+          <AddToCart productId={product.id} />
+        </div>
       </div>
     </>
   );

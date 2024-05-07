@@ -7,7 +7,7 @@ const cartPage = async () => {
   const cart = await getCart();
 
   return (
-    <div>
+    <div className="container mx-auto my-5">
       {cart.items.map((item) => (
         <CartComponent key={item.id} product={item} />
       ))}

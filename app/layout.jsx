@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "../app/components/Footer";
 import { SessionProvider } from "./SessionProvider";
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: ["300", "500", "700"] });
 
 export const metadata = {
   title: "Flowmazon",
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          <main className="container mx-auto">
+          <main>
             <Navbar />
             {children}
           </main>

@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hero_background {
+  background-image: url("/assets/hero4.png");
+}
+.news_background {
+  background-image: url("/assets/b2.jpg");
+  object-fit: contain;
+  background-position: center;
+  background-size: cover;
+  padding: 6rem;
+  margin: 5rem 0;
+}
+.about_background {
+  background-image: url("/assets/banner.png");
+  height: 40vh;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
